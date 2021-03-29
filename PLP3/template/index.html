@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Supermercado {% endblock title %}
+{% block body %}
+
+    <h2>Bienvenido a Supermercado</h2><br>
+    <a href="{% url 'articulos' %}">Ver Lista de Articulos</a><br>
+    <a href="{% url 'create_usuario' %}">Registrar Usuario</a><br>
+
+
+{% endblock body %}

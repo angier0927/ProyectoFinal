@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Articulos {% endblock title %}
+{% block body %}
+<a href="{% url 'create_articulo' %}">Crear</a>
+
+    <table style="border: 1px solid darkred">
+
+        <thead>
+            <tr>
+
+                <th>Nombre Producto</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th>Disponibilidad</th>
+                <th>Descuento</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+
+        <body>
+        {% for articulo in articulos %}
+        <tr>
+
+            <td>{{ articulo.nombre_producto }}</td>
+            <td>{{ articulo.precio }}</td>
+            <td>{{ articulo.categoria }}</td>
+            <td>{{ articulo.disponibilidad }}</td>
+            <td>{{ articulo.descuento }}</td>
+            <td><a href= "{% url 'edit_articulo' articulo.id %}" >Editar</a>
+                <a href= "{% url 'delete_articulo' articulo.id %}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+        </body>
+
+    </table>
+
+{% endblock body %}

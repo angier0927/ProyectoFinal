@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Manage Usuarios {% endblock title %}
+{% block body %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit"> Guardar </button>
+
+    </form>
+
+{% endblock body %}

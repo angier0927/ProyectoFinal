@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} Usuarios {% endblock title %}
+{% block body %}
+<a href="{% url 'create_usuario' %}">Registrarse</a>
+
+    <table style="border: 1px solid darkred">
+
+        <thead>
+            <tr>
+
+                <th>Nombre Usuario</th>
+                <th>Identificacion</th>
+                <th>Teléfono</th>
+                <th>Medio de Pago</th>
+                <th>Entrega</th>
+                <th>Direccion</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+
+        <body>
+        {% for usuario in usuarios %}
+        <tr>
+
+            <td>{{ usuario.nombre_usuario }}</td>
+            <td>{{ usuario.identificacion }}</td>
+            <td>{{ usuario.telefono }}</td>
+            <td>{{ usuario.medio_pago }}</td>
+            <td>{{ usuario.entrega }}</td>
+            <td>{{ usuario.direccion }}</td>
+            <td><a href= "{% url 'edit_usuario' usuario.id %}" >Editar</a>
+                <a href= "{% url 'delete_usuario' usuario.id %}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+        <br>
+        <a href="{% url 'articulos' %}">Ver Lista de Articulos</a>
+
+        </body>
+
+    </table>
+
+{% endblock body %}
